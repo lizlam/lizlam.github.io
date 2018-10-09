@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Today I Learned About the POSIX Locale and Docker &middot; Liz Lam
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="Liz Lam" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">Liz Lam</a>
+          <small>the writings of</small>
+          
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/about">About</a></small>
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/archive">Archive</a></small>
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/atom.xml">Feed</a></small>
+          
+        </h3>
+      </header>
+
+      <main>
+        <div class="post">
+  <h1 class="post-title">Today I Learned About the POSIX Locale and Docker</h1>
+  <time datetime="2017-06-21T00:00:00+00:00" class="post-date">21 Jun 2017</time>
+  <p><em>Today I learned</em> that the default locale for an Ubuntu image in a Docker container is not what I expected it to be.  I was trying to view some Greek file names in a container and they did not
+appear correctly.  I immediately knew there must be something off with locale of the container.</p>
+
+<p>What is a locale? It’s how Linux systems determines which language and character set a user sees when they log into a terminal session.  What is the default locale when pulling down a fresh Ubuntu 16.04 image?</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>root@4ff94ee1780d:/# locale
+LANG=
+LANGUAGE=
+LC_CTYPE="POSIX"
+LC_NUMERIC="POSIX"
+LC_TIME="POSIX"
+LC_COLLATE="POSIX"
+LC_MONETARY="POSIX"
+LC_MESSAGES="POSIX"
+LC_PAPER="POSIX"
+LC_NAME="POSIX"
+LC_ADDRESS="POSIX"
+LC_TELEPHONE="POSIX"
+LC_MEASUREMENT="POSIX"
+LC_IDENTIFICATION="POSIX"
+LC_ALL=
+</code></pre>
+</div>
+
+<p>What??!!  POSIX??!!! What’s the POSIX Locale?  The POSIX locale is another name for the C locale  (That’s ANSI C not the C Language)  which is another name for “if you expect to see any Unicode characters, haha, the jokes on you” locale.</p>
+
+<p>How to fix this?  Basically you need to add the <code class="highlighter-rouge">locale-gen</code> program to your container, generate and set the locale to something more appropriate.  This can be accomplished by adding the following to your Dockerfile:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>FROM ubuntu:16.04
+
+RUN apt-get clean &amp;&amp; apt-get update
+RUN apt-get install locales
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8 
+</code></pre>
+</div>
+
+<p>After rebuilding my docker image and running it, I “ssh” (start an interactive bash session) into the container to check.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>root@15dc539c6e1c:/# locale
+LANG=en_US.UTF-8
+LANGUAGE=en_US:en
+LC_CTYPE="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_PAPER="en_US.UTF-8"
+LC_NAME="en_US.UTF-8"
+LC_ADDRESS="en_US.UTF-8"
+LC_TELEPHONE="en_US.UTF-8"
+LC_MEASUREMENT="en_US.UTF-8"
+LC_IDENTIFICATION="en_US.UTF-8"
+LC_ALL=en_US.UTF-8
+</code></pre>
+</div>
+
+<p>Looks good.  Finally, I check the previous Greek test files and see that the characters are properly rendered.</p>
+
+
+</div>
+
+
+<aside class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/09/07/create-a-jenkinsfile-linter-macro/">
+            Create a Macro to Lint a Jenkinsfile
+            <small><time datetime="2017-09-07T00:00:00+00:00">07 Sep 2017</time></small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/09/06/today-i-learned-how-to-lint-jenkinsfile/">
+            Today I Learned How to Lint a Jenkinsfile
+            <small><time datetime="2017-09-06T00:00:00+00:00">06 Sep 2017</time></small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/05/12/today-i-learned-to-setup-rails-env-solus/">
+            Today I Learned How to Setup a Rails Environment on Solus
+            <small><time datetime="2017-05-12T00:00:00+00:00">12 May 2017</time></small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</aside>
+
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2018-10-09T05:36:42+00:00">2018</time>. All rights reserved.
+        </small>
+      </footer>
+
+      
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+ *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+ *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//bloglizlam.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+    </div>
+
+  </body>
+</html>
+
+

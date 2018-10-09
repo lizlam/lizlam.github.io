@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Today I Learned How to Setup a Rails Environment on Solus &middot; Liz Lam
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="Liz Lam" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">Liz Lam</a>
+          <small>the writings of</small>
+          
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/about">About</a></small>
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/archive">Archive</a></small>
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/atom.xml">Feed</a></small>
+          
+        </h3>
+      </header>
+
+      <main>
+        <div class="post">
+  <h1 class="post-title">Today I Learned How to Setup a Rails Environment on Solus</h1>
+  <time datetime="2017-05-12T00:00:00+00:00" class="post-date">12 May 2017</time>
+  <p><em>Today I Learned</em> how to set up a Rails development environment on Solus.  I’ve been running the <a href="https://solus-project.com/">Solus distribution</a> for a couple of months now.  I wanted to move over some of my local development environments from my Fedora laptop.  This is a little bit of a challenge if you’re used to mainstream Linux distributions (mainstream Linux seems like a bit of a oxymoron) with familiar tools such as apt or yum.  Solus is pretty new and not forked from another distro.  It has its own packaging system called ‘eopkg’.  These are the steps I had to take to get a Rails environment up and running and deployed using Heroku.</p>
+
+<p>First I had to install all the packages needed to get Rails up and running:</p>
+
+<p><code class="highlighter-rouge">sudo eopkg install -c system.devel</code>  <br />
+<code class="highlighter-rouge">sudo eopkg install ruby-devel</code>  <br />
+<code class="highlighter-rouge">sudo eopkg install sqlite3-devel</code>  <br />
+<code class="highlighter-rouge">sudo eopkg install nodejs</code>  <br />
+<code class="highlighter-rouge">sudo gem install rails</code></p>
+
+<p>Since I was using postgres, I also had to run the following:</p>
+
+<p><code class="highlighter-rouge">sudo eopkg install postgresql</code>  <br />
+<code class="highlighter-rouge">sudo eokpkg install postgresql-devel</code></p>
+
+<p>All that’s left is to download and install the Heroku command line client:</p>
+
+<p><code class="highlighter-rouge">wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz -O heroku.tar.gz</code></p>
+
+<p><code class="highlighter-rouge">tar zxvf heroku.tar.gz</code>  <br />
+<code class="highlighter-rouge">cd heroku</code>  <br />
+<code class="highlighter-rouge">sudo install</code></p>
+
+<p>After the Heroku client finished installing, I was able to clone my Rails projects and get them up and running.</p>
+
+
+</div>
+
+
+<aside class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/09/07/create-a-jenkinsfile-linter-macro/">
+            Create a Macro to Lint a Jenkinsfile
+            <small><time datetime="2017-09-07T00:00:00+00:00">07 Sep 2017</time></small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/09/06/today-i-learned-how-to-lint-jenkinsfile/">
+            Today I Learned How to Lint a Jenkinsfile
+            <small><time datetime="2017-09-06T00:00:00+00:00">06 Sep 2017</time></small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/06/21/today-i-learned-about-locale-docker/">
+            Today I Learned About the POSIX Locale and Docker
+            <small><time datetime="2017-06-21T00:00:00+00:00">21 Jun 2017</time></small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</aside>
+
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2018-10-09T05:36:42+00:00">2018</time>. All rights reserved.
+        </small>
+      </footer>
+
+      
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+ *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+ *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//bloglizlam.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+    </div>
+
+  </body>
+</html>
+
+

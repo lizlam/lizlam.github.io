@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Today I Learned About Netcat &middot; Liz Lam
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="Liz Lam" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">Liz Lam</a>
+          <small>the writings of</small>
+          
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/about">About</a></small>
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/archive">Archive</a></small>
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/atom.xml">Feed</a></small>
+          
+        </h3>
+      </header>
+
+      <main>
+        <div class="post">
+  <h1 class="post-title">Today I Learned About Netcat</h1>
+  <time datetime="2017-04-08T00:00:00+00:00" class="post-date">08 Apr 2017</time>
+  <p><em>Today I learned</em> about netcat, a utility written in 1995 for writing and reading data to TCP and UDP connections.
+It’s been called the “swiss army knife” of network utilities and from the little bit I’ve experiemented with,
+I can see why!</p>
+
+<p>Although named <code class="highlighter-rouge">netcat</code>, the actual command you run is <code class="highlighter-rouge">nc</code>.  Here are a couple of examples of using <code class="highlighter-rouge">nc</code>
+that I found interesting.</p>
+
+<p><strong>Scanning for a Port</strong></p>
+
+<p>Let’s say I’m running a webserver on localhost:4000 (<a href="https://jekyllrb.com/">Jekyll</a>’s default).</p>
+
+<p>I then run the following in a terminal:</p>
+
+<p><code class="highlighter-rouge">nc -v -z -w 1 localhost 3995-4000</code></p>
+
+<p><code class="highlighter-rouge">netcat</code> will scan through localhost’s port range 3995-4000, spitting out messages like this:</p>
+
+<p><img src="/assets/nc-port-scan.png" alt="Netcat Port Scan" />
+At the very end, we can see that port 4000 was connected to successfully.</p>
+
+<p><strong>Serving up a Webpage for One Connection</strong></p>
+
+<p>Want to send a message through a webpage that can only be view once?  Ok, yeah I know. Who would want to do that?
+(Just work with me here!) <code class="highlighter-rouge">netcat</code> can do that!</p>
+
+<p>Create a file called <code class="highlighter-rouge">message.txt</code> with the following content:</p>
+
+<blockquote>
+  <p>This message will self destruct as soon as you hit the refresh button.</p>
+</blockquote>
+
+<p>Execute the following:  <br />
+<code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="err">echo</span><span class="w"> </span><span class="err">-ne</span><span class="w"> </span><span class="nt">"HTTP/1.0 200 OK\r\nContent-Length: $(wc -c &lt;message.txt)\r\n\r\n"</span><span class="err">;</span><span class="w"> </span><span class="err">cat</span><span class="w"> </span><span class="err">message.txt;</span><span class="w"> </span><span class="err">}</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">nc</span><span class="w"> </span><span class="err">-l</span><span class="w"> </span><span class="mi">8080</span></code></p>
+
+<p>Now, if I open up a browser and point to ‘http://localhost:8080’, I will see my message.  If I refresh the page,
+the page goes away.  <code class="highlighter-rouge">netcat</code> serves the file and exits as soon as the first client hits it.  Pretty cool, huh?</p>
+
+<p><strong>Creating a Backdoor</strong></p>
+
+<p>Using <code class="highlighter-rouge">netcat</code> with the <code class="highlighter-rouge">-e</code> flag,  you can create backdoors to your systems (<code class="highlighter-rouge">-e</code> forks the process and redirects input/output).  It is possible to make any process a network server, listen on a port, and pipe the input to that process.  This is similar to SSH reverse tunneling.</p>
+
+<p>Let’s say you have 2 computers on the same network.  <br />
+On the 1st computer, run:</p>
+
+<p><code class="highlighter-rouge">nc -l -p 1777 -e /bin/sh</code></p>
+
+<p>On the 2nd computer, run:</p>
+
+<p><code class="highlighter-rouge">nc &lt;IP_ADDRESS_OF_1ST_COMPUTER&gt; 1777</code></p>
+
+<p>Now, type any shell command like <code class="highlighter-rouge">ls</code> or <code class="highlighter-rouge">touch i_see_you.txt</code> and see the commands get executed on the first computer.  Way cool!</p>
+
+<p>I didn’t know anything about <code class="highlighter-rouge">netcat</code> before today, but the tiny bit I’ve discovered tells me it’s going to be a valuable tool to have in my toolbox.</p>
+
+
+</div>
+
+
+<aside class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2017/09/07/create-a-jenkinsfile-linter-macro/">
+            Create a Macro to Lint a Jenkinsfile
+            <small><time datetime="2017-09-07T00:00:00+00:00">07 Sep 2017</time></small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/09/06/today-i-learned-how-to-lint-jenkinsfile/">
+            Today I Learned How to Lint a Jenkinsfile
+            <small><time datetime="2017-09-06T00:00:00+00:00">06 Sep 2017</time></small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2017/06/21/today-i-learned-about-locale-docker/">
+            Today I Learned About the POSIX Locale and Docker
+            <small><time datetime="2017-06-21T00:00:00+00:00">21 Jun 2017</time></small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</aside>
+
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2018-10-09T05:36:42+00:00">2018</time>. All rights reserved.
+        </small>
+      </footer>
+
+      
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+<script>
+
+/**
+ *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+ *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables */
+/*
+var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = '//bloglizlam.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+    </div>
+
+  </body>
+</html>
+
+

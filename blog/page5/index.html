@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Liz Lam &middot; the writings of
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/styles.css">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="Liz Lam" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">Liz Lam</a>
+          <small>the writings of</small>
+          
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/about">About</a></small>
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/archive">Archive</a></small>
+          
+	    &nbsp;&nbsp;&nbsp;
+            <small><a href="/atom.xml">Feed</a></small>
+          
+        </h3>
+      </header>
+
+      <main>
+        <div class="posts">
+  
+  <article class="post">
+    <h1 class="post-title">
+      <a href="/2017/04/26/today-i-learned-about-ruby-shell-commands/">
+        Today I Learned About Running Shell Commands in Ruby
+      </a>
+    </h1>
+
+    <time datetime="2017-04-26T00:00:00+00:00" class="post-date">26 Apr 2017</time>
+
+    <p><em>Today I Learned</em> about running shell commands in Ruby.  I’m really familiar with bash and it feels really natural for me to use backticks to run shell commands.  A coworker who was looking over my code got confused by them and asked why I didn’t use some other options.  At the very least, backticks can look pretty ugly in your Ruby code and since it confused a fellow coworker, I spent a little time looking at other ways to do it.</p>
+
+<p><strong>Backticks or %x()</strong></p>
+
+<p>It’s pretty much the same way you would use them in bash. Simply put backticks around your command and it runs the way one would expect, returning standard output (standard error gets printed to the screen) of the shell command.  You can access the exit value with <code class="highlighter-rouge">$?</code>.</p>
+
+<p><code class="highlighter-rouge">irb --simple-prompt</code> example:
+<img src="/assets/backtick_example.png" alt="Backtick Example" /></p>
+
+<p><strong>system</strong></p>
+
+<p>Input your command as a string (i.e. quote it) to <code class="highlighter-rouge">system</code>, it returns true if
+the exit status is zero, otherwise it returns false.  This is a good method if you don’t care about the standard output of the command you’re running.</p>
+
+<p><code class="highlighter-rouge">irb --simple-prompt</code> example:
+<img src="/assets/system_example.png" alt="System Example" /></p>
+
+<p><strong>exec</strong></p>
+
+<p>This is replace the current running process (i.e. will not run a new shell) and
+runs the command.  I’m not sure when it would be best to use this.  Perhaps when you don’t want to fork too many processes?</p>
+
+<p><code class="highlighter-rouge">irb --simple-prompt</code> example:
+<img src="/assets/exec_example.png" alt="Exec Example" /></p>
+
+
+  </article>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page6">Older</a>
+  
+  
+    <a class="pagination-item newer" href="/page4">Newer</a>
+  
+</div>
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2018-10-09T05:36:42+00:00">2018</time>. All rights reserved.
+        </small>
+      </footer>
+
+      
+
+
+    </div>
+
+  </body>
+</html>
+
+
