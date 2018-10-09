@@ -1,0 +1,58 @@
+h1
+{
+    color: gray;
+    font-family: Courier;
+    text-align: center;
+}
+
+body
+{
+   background-color: black;
+   text-align: left;
+   font-family: Courier;
+   color: gray;
+}
+
+a
+{ 
+   color: gray;
+   text-decoration: none;
+}
+
+a:hover
+{
+   color: 6699FF;
+}
+
+
+@keyframes blink
+{
+   0%   {color: grey;}
+   25%  {color: black;}
+   100% {color: grey;}
+}
+
+@-webkit-keyframes blink
+{
+   0%   {color: grey;}
+   25%  {color: black;}
+   100% {color: grey;}
+}
+
+div.cursor
+{
+   display: inline-block;
+   font-family: "Times New Roman";
+   font-size: 65%;
+   animation: blink 1s;
+   animation-iteration-count: infinite;
+   animation-timing-function: linear; 
+   -webkit-animation: blink 1s;
+   -webkit-animation-iteration-count: infinite;
+   -webkit-animation-timing-function: linear;
+}
+
+div.container
+{
+    display: inline-block;
+}
