@@ -44,6 +44,8 @@ div.cursor
    display: inline-block;
    font-family: "Times New Roman";
    font-size: 65%;
+   position: relative;
+   bottom: 2px;
    animation: blink 1s;
    animation-iteration-count: infinite;
    animation-timing-function: linear; 
