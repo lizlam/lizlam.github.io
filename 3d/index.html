@@ -1,3 +1,4 @@
+
 <html>
 <style>
 body {
@@ -8,6 +9,13 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
+main {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
 .tag-container {
   display: flex;    
   justify-content: center; 
@@ -25,11 +33,26 @@ h1 {
 
 .card {
   color: cornsilk;
+  flex: auto;
+  height: 250px;
+  min-width: 150px;
+  border: 1px solid cornsilk;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 10px;
 }
 
 a {
   text-decoration: none;
   color: cornsilk;
+}
+
+img {
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+  filter: drop-shadow(2px 4px 6px);
 }
 </style>
 <body>
@@ -43,23 +66,55 @@ a {
   </div>
   <main>
     <div class="card">
-      <a href="https://lizlam.github.io/3d/1dchess">1D Chess</a>
+      <a href="https://lizlam.github.io/3d/1dchess">
+	1D Chess
+        <div>
+          <img src="text-geometry.png"></img>
+        </div>
+        <p>work in progress...</p>
+      </a>
     </div>
     <div class="card">
-      <a href="https://lizlam.github.io/3d/grep">3D ABC's of grep</a>
+      <a href="https://lizlam.github.io/3d/grep">
+	3D ABC's of grep
+        <div>
+          <img src="text-geometry.png"></img>
+        </div>
+      </a>
+      <p>  An exercise with three.js and text geometries.
+      </p>
       <a href="https://github.com/lizlam/3d-abcs-of-grep">{code}</a>
     </div>
     <div class="card">
-      <a href="https://lizlam.github.io/3d/webgl-tri">WebGL Triangle</a>
+      <a href="https://lizlam.github.io/3d/webgl-tri">
+        WebGL Triangle
+        <div>
+          <img src="triangle.png"></img>
+        </div>
+        <p>First webgl triangle.</p>
+      </a>
       <a href="https://github.com/lizlam/lizlam.github.io/blob/master/3d/webgl-tri/index.html">{code}</a>
     </div>
     <div class="card">
-      <a href="https://lizlam.github.io/3d/church">3D Church</a>
+      <a href="https://lizlam.github.io/3d/church">
+   	3D Church
+        <div>
+          <img src="church.png"></img>
+        </div>
+        <p>Church using basic geometries in three.js.</p>
+      </a>
       <a href="https://github.com/lizlam/church">{code}</a>
     </div>
     <div class="card">
-      <a href="https://lizlam.github.io/3d/p4v-3dpreview">P4V 3D Preview</a>
+      <a href="https://lizlam.github.io/3d/p4v-3dpreview">
+	P4V 3D Preview
+        <div>
+          <img src="text-geometry.png"></img>
+        </div>
+        <p>An experiment with P4VJS api and model-viewer component.</p>
+      </a>
     </div>
   </main>
 </body>
 </html>
+
