@@ -1,0 +1,36 @@
+<svg
+  width="32"
+  height="32"
+  viewBox="0 0 32 32"
+  xmlns="http://www.w3.org/2000/svg"
+  style="background:#0b0b0b; border-radius:3px;"
+>
+  <defs>
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="1" flood-color="#00ffff" flood-opacity="0.9" />
+      <feDropShadow dx="0" dy="0" stdDeviation="1.5" flood-color="#00ffff" flood-opacity="0.6" />
+    </filter>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+      .tron-text {
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 900;
+        fill: none;
+        stroke: #00ffff;
+        stroke-width: 0.8;
+        filter: url(#neonGlow);
+        letter-spacing: -2px;
+      }
+    ]]></style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="32" height="32" fill="#0b0b0b" rx="3" />
+
+  <!-- Z -->
+  <text x="2" y="26" class="tron-text" font-size="24">Z</text>
+
+  <!-- 8 -->
+  <text x="15" y="26" class="tron-text" font-size="24">8</text>
+</svg>
+
