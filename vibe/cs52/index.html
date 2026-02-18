@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Computer Science 52 – CS with Playing Cards!</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #fef3c7, #fed7aa);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      background: #c2410c;
+      color: white;
+      width: 100%;
+      padding: 2.8rem 1rem;
+      text-align: center;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+    }
+    h1 {
+      margin: 0;
+      font-size: 3.4rem;
+      letter-spacing: 1.5px;
+    }
+    .tagline {
+      font-size: 1.45rem;
+      margin-top: 0.6rem;
+      opacity: 0.95;
+    }
+    .container {
+      max-width: 1180px;
+      padding: 3.5rem 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 1.8rem;
+      overflow: hidden;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-14px) scale(1.03);
+      box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+    }
+    .card-icon {
+      background: #ea580c;
+      color: white;
+      font-size: 4.2rem;
+      font-weight: bold;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 2px;
+    }
+    .card-content {
+      padding: 2rem 1.8rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card h2 {
+      margin: 0 0 1rem 0;
+      color: #c2410c;
+      font-size: 1.8rem;
+    }
+    .card p {
+      margin: 0;
+      color: #444;
+      line-height: 1.55;
+      flex-grow: 2;
+    }
+    .card .arrow {
+      margin-top: 1.4rem;
+      font-size: 2rem;
+      color: #f97316;
+      align-self: flex-end;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Computer Science 52</h1>
+    <div class="tagline">Learn CS concepts with a Deck of Cards • 52 Fun Activities for Kids!</div>
+  </header>
+
+  <div class="container">
+
+    <a href="1.html" class="card">
+      <div class="card-icon">1</div>
+      <div class="card-content">
+        <h2>Build a Paper Robot</h2>
+        <p>A warm up arts and craft activity for kids to create a few paper robots using origami and print outs.</p>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+
+    <a href="2.html" class="card">
+      <div class="card-icon">2</div>
+      <div class="card-content">
+        <h2>Variables</h2>
+        <p>What is a variable?  How can we represent variables with a deck of cards?</p>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+
+    <a href="3.html" class="card">
+      <div class="card-icon">3</div>
+      <div class="card-content">
+        <h2>If then else</h2>
+        <p>Learn about if-then-else conditionals and think about how to bound the cards.</p>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+
+    <a href="4.html" class="card">
+      <div class="card-icon">4</div>
+      <div class="card-content">
+        <h2>Loops</h2>
+        <p>Learn about simple loops but using a loop card on an instruction.</p>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+
+    <a href="5.html" class="card">
+      <div class="card-icon">5</div>
+      <div class="card-content">
+        <h2>Robot Zine</h2>
+        <p>Let's take a creative break and create a robot zine.</p>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+    <a href="6.html" class="card">
+      <div class="card-icon">6</div>
+      <div class="card-content">
+        <h2>Powers of 2</h2>
+        <p>Learn about the powers of 2 using grains of rice and a chessboard.</p>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+
+  </div>
+
+</body>
+</html>
