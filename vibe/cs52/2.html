@@ -56,8 +56,106 @@
       <p>So far our robot can only go forward and that's pretty boring.  
         Let's introduce a couple more cards that are not a part of standard deck of cards: Left and Right.
         Using L and R cards, rotate the your robot 90 degrees to the left or right depending on the card. </p>
-      </section>
+    </section>
+
+  <section>
+  <h2>8×8 Grid – Your Robot's World</h2>
+  <p>The robot always starts here: <strong>below the bottom-left square</strong>, facing up (north/towards the top of the page).</p>
+  <p>Use your card sequence to move it around without falling off the edges!</p>
+
+  <div style="margin: 2rem auto; text-align: center;">
+    <div style="display: inline-block; border: 4px solid #c2410c; border-radius: 0.8rem; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.15); background: #fef3c7;">
+      <table style="border-collapse: collapse; font-family: monospace; font-size: 0.9rem;">
+        <!-- Row 8 (top of board) to Row 1 (bottom) -->
+        <tr>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+        </tr>
+        <tr>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+        </tr>
+        <tr>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+        </tr>
+        <tr>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+        </tr>
+        <tr>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+        </tr>
+        <tr>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+        </tr>
+        <tr>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+        </tr>
+        <tr>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+          <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+        </tr>
+      </table>
+  <!-- Optional: Add a legend or starting marker hint -->
+  <div style="text-align: left; margin-top: 1.5rem;">
+    <span style="background:#c2410c; color:white; padding:0.5rem 1rem; border-radius:0.5rem; font-weight:bold;">
+      🤖 Imagine the robot here at start!
+    </span>
   </div>
+</section>
+</div>
 
 </body>
 </html>
