@@ -20,7 +20,7 @@
 <body>
 
   <header>
-    <h1>If Then Else</h1>
+    <h1>If-Then-Else</h1>
   </header>
 
   <div class="container">
@@ -43,11 +43,128 @@
       <p>Try making your own rules: "If number > 7 then shout 'High!', else whisper 'Low'."</p>
     </section>
 
+      <section>
+        <h2>Mission 6 – Mystery Card Challenge</h2>
+        
+        <p><strong>Big Idea:</strong> The goal itself holds a secret! Use if-then-else to decide if reaching the star is a win or "try again" based on what you reveal when you flip it.</p>
+        
+        <p><strong>Your Quest:</strong> Program the robot to navigate across the 8×8 grid to the mystery star square (marked 🂠 — a face-down playing card). When the robot lands there, flip the card and apply your rule:</p>
+        
+        <blockquote style="background:#fff3e0; border-left:6px solid #c2410c; padding:1.2rem; margin:1.5rem 0; font-style:italic; color:#333; font-size:1.15rem; text-align:center;">
+          <strong>If</strong> the card is <strong>RED</strong> (or HIGH / EVEN — choose your rule!), <strong>THEN</strong> WIN! 🎉 (cheer, high-five, success!)<br>
+          <strong>Else</strong> → LOSE! 😅 (reset robot, reshuffle card, try again)
+        </blockquote>
+        
+        <p>Play multiple rounds — the card is random each time (a friend can secretly place or swap it), so the same path + conditional might win or lose. That's the power of decisions with uncertainty!</p>
+      
+        <h3>Full 8×8 Grid – Robot's World with Mystery Star</h3>
+        <p>Robot starts at bottom-left (row 1, column 1), facing up (north). Program a path using forward numbers (1–8), L, and R to reach the mystery star square (🂠). No arrows shown — just the board and the goal!</p>
+      
+        <div style="margin: 2rem auto; text-align: center;">
+          <div style="display: inline-block; border: 4px solid #c2410c; border-radius: 0.8rem; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.15); background: #fef3c7;">
+            <table style="border-collapse: collapse; font-family: monospace; font-size: 0.9rem;">
+              <!-- Row 8 (top) -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+              <!-- Row 7 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+              </tr>
+              <!-- Row 6 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+              <!-- Row 5 – Mystery star placed here (example position; move as desired) -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#d4f4dd; text-align:center; vertical-align:middle; font-size:2.2rem; font-weight:bold;">🂠</td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+              <!-- Row 4 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+              <!-- Row 3 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+              <!-- Row 1 (bottom) – Start -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+              </tr>
+            </table>
+            <div style="text-align: left; margin-top: 1.5rem; padding: 0.8rem; background:#f5f5f5;">
+              <span style="background:#c2410c; color:white; padding:0.5rem 1rem; border-radius:0.5rem; font-weight:bold;">
+                🤖 Start here (facing ↑) – Reach 🂠 and flip!
+              </span>
+            </div>
+          </div>
+        </div>
+        <strong>Condition:</strong> If Red Win Else Lose
+    </section>
+
     <section>
-      <h2>Robot says</h2>
-      <p>Tell your paper robot: "If it's daytime, then open eyes wide. Else, close eyes and sleep."</p>
+      Pick another location to place the mystery card and new if-then-else condition.
     </section>
   </div>
-
 </body>
 </html>
