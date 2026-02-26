@@ -38,6 +38,13 @@
     </section>
 
     <section>
+      <h2>Try it yourself and put grains of rice on the bottom row of a chessboard.</h2>
+      <p>Take a some grains of rice and put 1 grain in the lower right square.</p>
+      <p>Put 2 (doubling 1) in the next square to the left.</p>
+      <p>Continue as best you can and see if you can finish the row.</p>
+    </section>
+
+    <section>
       <h2>Card version</h2>
       <ul>
         <li>Take cards numbered 1, 2, 4, 8 (or write these numbers on blank cards).</li>
@@ -47,7 +54,43 @@
       </ul>
       <p>Challenge: Can you make 10? (8 + 2)</p>
     </section>
+
+    <section>
+  <h2>Mission: From Rice Grains to Binary Bits</h2>
+  <p>Imagine the bottom row of your chessboard is a row of 8 light switches. Each switch controls a power of 2:</p>
+  
+  <div style="margin: 2rem auto; text-align: center;">
+    <table style="border-collapse: collapse; font-family: monospace; font-size: 1.1rem; margin: 0 auto;">
+      <tr>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">128</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">64</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">32</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">16</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">8</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">4</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">2</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">1</td>
+      </tr>
+      <tr style="font-size:0.9rem; color:#555;">
+        <td>2⁷</td><td>2⁶</td><td>2⁵</td><td>2⁴</td><td>2³</td><td>2²</td><td>2¹</td><td>2⁰</td>
+      </tr>
+    </table>
+    <p style="margin-top:1rem; font-style:italic;">Rightmost square = 1 (smallest). Leftmost = 128 (biggest).</p>
   </div>
+
+  <p><strong>Your mission:</strong> "Turn on" some squares by placing a bean / coin / card that says "ON" (or just imagine a glowing light!). The total number is what you get by adding the values of the ON squares.</p>
+
+  <ul>
+    <li>Make the number <strong>13</strong>. Which lights do you turn on? → 8 + 4 + 1</li>
+    <li>Make <strong>25</strong>. (16 + 8 + 1)</li>
+    <li>Make <strong>100</strong>. (64 + 32 + 4)</li>
+    <li>Challenge: What is the biggest number you can make with only 4 lights on? (Try it!)</li>
+    <li>Super challenge: Can you make <strong>255</strong>? Which lights? (All of them!)</li>
+  </ul>
+
+  <p>Think: Why do computers use exactly this system? Because each "light" is just a bit — on (1) or off (0)!</p>
+</section>
+</div>
 
 </body>
 </html>
