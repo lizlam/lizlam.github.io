@@ -35,16 +35,166 @@
       <h2>Card loop game</h2>
       <ul>
         <li>Pick 5 cards and line them up.</li>
-        <li>Make a "loop card" (write "REPEAT 3 TIMES" on an extra card or note).</li>
-        <li>Instruction: "For each card in the line, wave your hand once — but do the whole line 3 times because of the loop!"</li>
-        <li>Count how many waves you did (15!).</li>
+        <li>Take a Loop card with a 2 on it and put it on one of the cards.</li>
+        <li>Instruction: "For each card in the line, tap your finger that number of times on the your desk  — but when you come to the card with a loop 1 card, tap that number of times again. </li>
       </ul>
-      <p>Without the loop you'd only wave 5 times. Loops save time!</p>
+      <p>Loops save time!</p>
     </section>
 
     <section>
       <h2>Try this</h2>
-      <p>Make a loop that says "jump 4 times" — then put it around drawing 3 stars. How many jumps total?</p>
+      <p>Place a number card on your desk. Jump that many times.  Place a loop card on it.  How many times should you jump?</p>
+    </section>
+
+    <section>
+      <h2>Mission 7 – Loops: Repeat the Magic</h2>
+      
+      <p><strong>Big Idea:</strong> Sometimes the best paths have repeating patterns — like going forward, turn, forward, turn, forward... over and over. Instead of writing the same cards again and again, we use <strong>loop cards</strong> to say "do this part multiple times"!</p>
+      
+      <p>A loop card (with 1, 2, or 3 on it) tells the robot: "Repeat the next group of actions this many times." It's like telling a friend "jump three times" instead of saying "jump, jump, jump".</p>
+    
+      <h3>New Loop Cards</h3>
+      <ul>
+        <li><strong>Loop 1</strong> — do the next block once (useful for testing)</li>
+        <li><strong>Loop 2</strong> — repeat the next block twice</li>
+        <li><strong>Loop 3</strong> — repeat the next block three times</li>
+      </ul>
+      
+      <p><strong>How it works:</strong> Place a loop card, then place the actions you want to repeat right after it (forwards, turns, etc.). The robot does those actions the number of times shown on the loop card.</p>
+    
+      <p style="font-style:italic; color:#555; margin:1.5rem 0;">
+        In real coding this looks like:<br>
+        <strong>for i in range(3):</strong><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;forward(1)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;turn_right()
+      </p>
+    
+      <h3>Quick Playground Challenge</h3>
+      <ul>
+        <li>Place robot at start, facing up.</li>
+        <li>Try: <strong>Loop 3   1   R</strong></li>
+        <li>What happens? → The robot repeats "forward 1, turn right" three times → makes a square spiral!</li>
+        <li>Now change to <strong>Loop 2   2   L</strong> → repeats "forward 2, turn left" twice → bigger turns!</li>
+        <li>Experiment: What shape do you get with <strong>Loop 3   1   R   Loop 2   1   L</strong>?</li>
+      </ul>
+    
+      <h3>Main Mission: Zigzag to the Star with Loops</h3>
+      <p>Use loops to make the robot zigzag efficiently across the board to reach the star. You can place the star anywhere (or use the mystery 🂠 from Mission 6 if you want surprise!).</p>
+    
+
+ <div style="margin: 2rem auto; text-align: center;">
+          <div style="display: inline-block; border: 4px solid #c2410c; border-radius: 0.8rem; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.15); background: #fef3c7;">
+            <table style="border-collapse: collapse; font-family: monospace; font-size: 0.9rem;">
+              <!-- Row 8 (top) -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+              <!-- Row 7 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+              </tr>
+              <!-- Row 6 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+          
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#d4f4dd; text-align:center; vertical-align:middle; font-size:2.2rem; font-weight:bold;">⭐</td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+              <!-- Row 4 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+              <!-- Row 3 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+              </tr>
+              <!-- Row 2 -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+              </tr>
+              <!-- Row 1 (bottom) – Start -->
+              <tr>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fef3c7;"></td>
+                <td style="width:45px; height:45px; border:1px solid #aaa; background:#fed7aa;"></td>
+              </tr>
+            </table>
+            <div style="text-align: left; margin-top: 1.5rem; padding: 0.8rem; background:#f5f5f5;">
+              <span style="background:#c2410c; color:white; padding:0.5rem 1rem; border-radius:0.5rem; font-weight:bold;">
+                🤖 Start here  – Use loops to reach ⭐!
+              </span>
+            </div>
+          </div>
+        </div>
+ 
+      <p style="margin-top: 1rem; font-style: italic; color: #555; text-align:center;">
+        <strong>Legend:</strong> 🤖 = Robot start (bottom-left, facing up) • ⭐ = Goal square (move it anywhere you like!) 
+      </p>
+      <details style="margin-top: 2rem; background: #fff3e0; border: 2px solid #c2410c; border-radius: 0.8rem; padding: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <summary style="font-weight: bold; color: #c2410c; cursor: pointer; font-size: 1.3rem; outline: none;">
+          Click to reveal a solution 
+        </summary>
+        <div style="margin-top: 1.2rem; padding: 1rem; background: white; border-radius: 0.6rem;">
+          <strong>One Answer:</strong> Loop 5 [1 R 1 L]
+          <p>You would need to use Loop 2 and Loop 3 cards together.</p>
+          <p>There are actually many ways to use loops to get to the star, but this is just one way.</p>
+        </div>
+      </details>
     </section>
   </div>
 
