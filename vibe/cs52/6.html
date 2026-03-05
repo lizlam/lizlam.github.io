@@ -4,6 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>6 – Powers of 2</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Find ALL <details> elements on the page
+      const allDetails = document.querySelectorAll('details');
+    
+      allDetails.forEach(details => {
+        details.addEventListener('toggle', () => {
+          // (uncomment if you wrap each exercise in <section class="exercise">)
+          const answerCells = details.closest('section')?.querySelectorAll('.answer') || [];
+    
+          answerCells.forEach(cell => {
+            if (details.open) {
+              cell.classList.add('highlighted');
+            } else {
+              cell.classList.remove('highlighted');
+            }
+          });
+        });
+      });
+    });
+    </script>
+
   <style>
     body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #fef3c7, #fed7aa); margin:0; padding:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; }
     header { background:#c2410c; color:white; width:100%; padding:1.8rem 1rem; text-align:center; box-shadow:0 6px 16px rgba(0,0,0,0.18); }
@@ -15,6 +37,15 @@
     h2 { color:#c2410c; font-size:2rem; margin-bottom:1rem; }
     p, li { font-size:1.15rem; line-height:1.6; color:#444; }
     ul { padding-left:1.8rem; margin:1.2rem 0; }
+    .answer { background-color: transparent }
+  
+    .highlighted {
+      background-color: #fef08a !important;   /* bright highlight */
+      box-shadow: 0 0 24px rgba(194, 65, 12, 0.5);
+      border-color: #9a3412 !important;
+      transition: all 0.4s ease;
+      font-size: 36px;
+    }
   </style>
 </head>
 <body>
@@ -78,7 +109,7 @@
     <p style="margin-top:1rem; font-style:italic;">Rightmost square = 1 (smallest). Leftmost = 128 (biggest).</p>
   </div>
 
-  <p><strong>Your mission:</strong> "Turn on" some squares by placing a bean / coin / card that says "ON" (or just imagine a glowing light!). The total number is what you get by adding the values of the ON squares.</p>
+  <p><strong>Your goal:</strong> "Turn on" some squares by placing a bean / coin / card that says "ON" (or just imagine a glowing light!). The total number is what you get by adding the values of the ON squares.</p>
 
   <ul>
     <li>Make the number <strong>13</strong>. Which lights do you turn on? → 8 + 4 + 1</li>
@@ -89,6 +120,165 @@
   </ul>
 
   <p>Think: Why do computers use exactly this system? Because each "light" is just a bit — on (1) or off (0)!</p>
+</section>
+   
+  <section id="exercise">
+  <h2>Excercise 0</h2>
+  <p>Let's just start with 1/2 the board to get warmed up.</p>
+  
+  <div style="margin: 2rem auto; text-align: center;">
+    <table style="border-collapse: collapse; font-family: monospace; font-size: 1.1rem; margin: 0 auto;">
+      <tr>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">8</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">4</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">2</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">1</td>
+      </tr>
+      <tr style="font-size:0.9rem; color:#555;">
+        <td>2³</td><td>2²</td><td>2¹</td><td>2⁰</td>
+      </tr>
+    </table>
+    <p style="margin-top:1rem; font-style:italic;">Rightmost square = 1 (smallest).</p>
+  </div>
+
+  <p><strong>Your goal:</strong> "Turn on" some squares to make 3. 
+
+   <details style="margin-top: 2rem; background: #fff3e0; border: 2px solid #c2410c; border-radius: 0.8rem; padding: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <summary style="font-weight: bold; color: #c2410c; cursor: pointer; font-size: 1.3rem; outline: none;">
+          Click to reveal a solution 
+        </summary>
+        <div style="margin-top: 1.2rem; padding: 1rem; background: white; border-radius: 0.6rem;">
+          <strong>Answer:</strong> 2 + 1
+        </div>
+      </details>
+</section>
+
+ <section id="exercise">
+  <h2>Excercise 1</h2>
+  <p>Let's just start with 1/2 the board to get warmed up.</p>
+  
+  <div style="margin: 2rem auto; text-align: center;">
+    <table style="border-collapse: collapse; font-family: monospace; font-size: 1.1rem; margin: 0 auto;">
+      <tr>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">8</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">4</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">2</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">1</td>
+      </tr>
+      <tr style="font-size:0.9rem; color:#555;">
+        <td>2³</td><td>2²</td><td>2¹</td><td>2⁰</td>
+      </tr>
+    </table>
+    <p style="margin-top:1rem; font-style:italic;">Rightmost square = 1 (smallest).</p>
+  </div>
+
+  <p><strong>Your goal:</strong> "Turn on" some squares to make 13. 
+
+   <details style="margin-top: 2rem; background: #fff3e0; border: 2px solid #c2410c; border-radius: 0.8rem; padding: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <summary style="font-weight: bold; color: #c2410c; cursor: pointer; font-size: 1.3rem; outline: none;">
+          Click to reveal a solution 
+        </summary>
+        <div style="margin-top: 1.2rem; padding: 1rem; background: white; border-radius: 0.6rem;">
+          <strong>Answer:</strong> 8 + 4 + 1
+        </div>
+      </details>
+</section>
+
+<section id="exercise">
+  <h2>Excercise 2</h2>
+  
+  <div style="margin: 2rem auto; text-align: center;">
+    <table style="border-collapse: collapse; font-family: monospace; font-size: 1.1rem; margin: 0 auto;">
+      <tr>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">8</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">4</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">2</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">1</td>
+      </tr>
+      <tr style="font-size:0.9rem; color:#555;">
+        <td>2³</td><td>2²</td><td>2¹</td><td>2⁰</td>
+      </tr>
+    </table>
+    <p style="margin-top:1rem; font-style:italic;">Rightmost square = 1 (smallest).</p>
+  </div>
+
+  <p><strong>Your goal:</strong> "Turn on" some squares to make 10. 
+
+   <details style="margin-top: 2rem; background: #fff3e0; border: 2px solid #c2410c; border-radius: 0.8rem; padding: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <summary style="font-weight: bold; color: #c2410c; cursor: pointer; font-size: 1.3rem; outline: none;">
+          Click to reveal a solution 
+        </summary>
+        <div style="margin-top: 1.2rem; padding: 1rem; background: white; border-radius: 0.6rem;">
+          <strong>Answer:</strong> 8 + 2
+        </div>
+      </details>
+</section>
+
+<section id="exercise">
+  <h2>Excercise 3</h2>
+  <p>Ready to use the rest of the squares?</p>
+  
+  <div style="margin: 2rem auto; text-align: center;">
+     <table style="border-collapse: collapse; font-family: monospace; font-size: 1.1rem; margin: 0 auto;">
+      <tr>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">128</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">64</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">32</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">16</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">8</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">4</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">2</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">1</td>
+      </tr>
+      <tr style="font-size:0.9rem; color:#555;">
+        <td>2⁷</td><td>2⁶</td><td>2⁵</td><td>2⁴</td><td>2³</td><td>2²</td><td>2¹</td><td>2⁰</td>
+      </tr>
+    </table>
+  </div>
+
+  <p><strong>Your goal:</strong> "Turn on" some squares to make 25. 
+
+   <details style="margin-top: 2rem; background: #fff3e0; border: 2px solid #c2410c; border-radius: 0.8rem; padding: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <summary style="font-weight: bold; color: #c2410c; cursor: pointer; font-size: 1.3rem; outline: none;">
+          Click to reveal a solution 
+        </summary>
+        <div style="margin-top: 1.2rem; padding: 1rem; background: white; border-radius: 0.6rem;">
+          <strong>Answer:</strong> 16 + 8 + 1
+        </div>
+      </details>
+</section>
+
+<section id="exercise">
+  <h2>Excercise 4</h2>
+  
+  <div style="margin: 2rem auto; text-align: center;">
+     <table style="border-collapse: collapse; font-family: monospace; font-size: 1.1rem; margin: 0 auto;">
+      <tr>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">128</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">64</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">32</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">16</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">8</td>
+        <td class="answer" style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">4</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fed7aa; font-weight:bold;">2</td>
+        <td style="width:60px; height:60px; border:2px solid #c2410c; background:#fef3c7; font-weight:bold;">1</td>
+      </tr>
+      <tr style="font-size:0.9rem; color:#555;">
+        <td>2⁷</td><td>2⁶</td><td>2⁵</td><td>2⁴</td><td>2³</td><td>2²</td><td>2¹</td><td>2⁰</td>
+      </tr>
+    </table>
+  </div>
+
+  <p><strong>Your goal:</strong> "Turn on" some squares to make 100. 
+
+   <details style="margin-top: 2rem; background: #fff3e0; border: 2px solid #c2410c; border-radius: 0.8rem; padding: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+        <summary style="font-weight: bold; color: #c2410c; cursor: pointer; font-size: 1.3rem; outline: none;">
+          Click to reveal a solution 
+        </summary>
+        <div style="margin-top: 1.2rem; padding: 1rem; background: white; border-radius: 0.6rem;">
+          <strong>Answer:</strong> 64 + 32 + 4 
+        </div>
+      </details>
 </section>
 </div>
 
